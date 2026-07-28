@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="public/ic_logo_new.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  <title>EngChatt</title>
+
+  <style>
+    @font-face {
+      font-family: 'Roboto Mono';
+      src: url('public/roboto-bold_700.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      /* 👈 allow wrap */
+      padding: 15px 20px;
+      background: white;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      /* spacing between brand & hero */
+      flex: 1;
+      /* take available space */
+      flex-wrap: wrap;
+      /* 👈 allow hero to wrap */
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-text {
+      font-weight: bold;
+      font-size: 28px;
+      font-family: "Noto Sans";
+    }
+
+    .logo-img {
+      height: 68px;
+      margin-bottom: 20px;
+    }
+
+    body {
+      margin: 0;
+      font-style: normal;
+      background: white;
+      text-align: center;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: white;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 5px;
+      flex-shrink: 0;
+      margin-top: 10px;
+    }
+
+    .lang-switch button {
+      margin-left: 5px;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      background: white;
+      cursor: pointer;
+      font-family: "Noto Sans";
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+      color: black;
+      border-radius: 5px;
+    }
+
+    /* 👇 active state */
+    .lang-switch button.active {
+      background: #ff8800;
+      color: white;
+      border-color: #ff8800;
+    }
+
+
+    .hero-row {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      flex: 1;
+      /* 👈 push it to center */
+      min-width: 200px;
+      /* prevent too small */
+    }
+
+    .hero-text {
+      color: #ff8800;
+      font-weight: bold;
+      font-size: 24px;
+      font-family: "Noto Sans";
+    }
+
+    .hero-text-powered-by {
+      font-weight: bold;
+      font-size: 18px;
+      color: #2d2d2d;
+      font-family: "Noto Sans";
+    }
+
+    #mainText {
+      font-family: "Noto Sans";
+      color: #2d2d2d;
+    }
+
+    .hero-text,
+    .hero-text-powered-by {
+      white-space: nowrap;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+      flex-wrap: wrap;
+      background-color: #f5f5f5;
+    }
+
+    .card {
+      background: white;
+      padding: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      width: 250px;
+      height: auto;
+      display: block;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 20px;
+    }
+
+    .store-buttons img {
+      height: 60px;
+      margin: 10px;
+    }
+
+    /* .note {
+      margin: 30px 20px;
+      color: #444;
+    } */
+
+    footer {
+      max-width: 100%;
+      padding: 20px;
+      font-size: 14px;
+      color: #666;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #footerLinks {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-family: "Noto Sans";
+    }
+
+    footer p {
+      font-family: "Noto Sans";
+    }
+
+
+    a {
+      color: #666;
+      text-decoration: none;
+    }
+
+    @media (min-width: 769px) {
+      .scroll-hint-fixed {
+        display: none;
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+
+      .store-buttons img {
+        height: 60px;
+        width: 180px;
+        margin: 10px;
+      }
+
+      .store-buttons {
+        display: flex;
+        justify-content: center; /* 👈 center horizontally */
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .social {
+        order: 1;
+        /* first */
+      }
+
+      #footerLinks {
+        order: 2;
+        /* second */
+      }
+
+      footer p {
+        order: 3;
+        font-family: "Noto Sans";
+        /* last */
+      }
+
+      header {
+        align-items: flex-end;
+      }
+
+      .header-left {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-text {
+        font-size: 20px;
+      }
+
+      .hero-text-powered-by {
+        font-size: 16px;
+      }
+
+      .lang-switch {
+        justify-content: flex-end;
+        margin-top: 0px;
+      }
+
+      .gallery a {
+        display: none;
+        /* hide all images */
+      }
+
+      .gallery a:first-child {
+        display: block;
+        /* show only first image */
+      }
+
+      .card img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      footer {
+        flex-direction: column;
+        /* 👈 stack items vertically */
+        align-items: center;
+        /* center everything */
+        text-align: center;
+        gap: 10px;
+        /* spacing between rows */
+      }
+
+      #footerLinks {
+        justify-content: center;
+      }
+
+      .note b {
+        margin-left: 5px;
+      }
+
+      .scroll-hint-fixed {
+        width: 30px;
+        height: 30px;
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        z-index: 999;
+
+        font-size: 24px;
+        background: rgba(75, 72, 72, 0.6);
+        color: white;
+        padding: 10px 12px;
+        border-radius: 50%;
+
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+
+        left: 50%;                /* 👈 move to middle */
+  transform: translateX(-50%); /* 👈 perfect center */
+      }
+
+      /* hidden */
+      .scroll-hint-fixed.hide {
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 376){
+      .hero-text {
+        font-size: 16px;
+      }
+
+      .hero-text-powered-by {
+        font-size: 16px;
+      }
+    }
+
+    /* @media (max-height: 361){
+      .hero-text {
+        font-size: 16px;
+      }
+
+      .hero-text-powered-by {
+        font-size: 16px;
+      } */
+    /* } */
+
+    .note {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 10px;
+
+      max-width: 600px;
+      margin: 30px auto;
+      text-align: left;
+    }
+
+    /* emoji */
+    .note-icon {
+      grid-row: 1 / 3;
+      /* span both rows */
+    }
+
+    /* title */
+    .note-title {
+      grid-column: 2;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-family: "Noto Sans";
+    }
+
+    /* text */
+    .note p {
+      grid-column: 2;
+      margin: 0;
+      margin-right: 5px;
+      font-family: "Noto Sans";
+    }
+
+    .social img {
+      width: 24px;
+      height: 24px;
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-left">
+      <div class="brand">
+        <div class="logo-text">EngChatt</div>
+        <img src="public/ic_logo_new.png" class="logo-img" />
+      </div>
+      <div class="hero-row">
+        <div class="hero-text" id="subtitle"></div>
+        <div class="hero-text-powered-by" id="subtitle_powered_by"></div>
+      </div>
+    </div>
+
+    <div class="lang-switch">
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+      <button id="btn-vi" onclick="setLang('vi')">VI</button>
+    </div>
+  </header>
+
+  <!-- IMAGES -->
+  <div class="gallery">
+    <a href="#">
+      <div class="card">
+        <img src="public/image2.png" />
+      </div>
+    </a>
+
+    <a href="#">
+      <div class="card">
+        <img src="public/image1.png" />
+      </div>
+    </a>
+
+    <a href="#">
+      <div class="card">
+        <img src="public/image3.png" />
+      </div>
+    </a>
+  </div>
+
+  <div class="title" id="mainText"></div>
+
+  <div class="store-buttons">
+    <a href="https://apps.apple.com/us/app/engchatt/id6759521840">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" />
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.meet.the.engc">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" />
+    </a>
+  </div>
+
+  <div class="note">
+    <div class="note-title">❤️ <b id="founderTitle"></b></div>
+    <p id="founderText"></p>
+  </div>
+
+  <footer>
+    <p>© 2025 EngChatt.com All rights reserved</p>
+    <div class="social">
+      <img src="public/fb.png" />
+      <img src="public/tiktok.png" />.
+      <img src="public/youtube.png" />
+    </div>
+    <div id="footerLinks">
+      <a href="privacy.html" id="privacy"></a>
+      <a href="eula.html" id="term"></a>
+      <a href="mailto:hi@engchatt.com" id="contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    const hint = document.getElementById("scrollHint");
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const hint = document.getElementById("scrollHint");
+
+      if (!hint) return; // 👈 prevent error if element not found
+
+      hint.addEventListener("click", () => {
+        window.scrollTo({
+          top: document.documentElement.scrollHeight, // 👈 better than body
+          behavior: "smooth"
+        });
+      });
+    });
+
+    const translations = {
+      en: {
+        subtitle: "A Fun Reading Game",
+        subtitle_powered_by: "",
+        main: "This game can help your kids to read better and think smarter",
+        founderTitle: "Founder Note:",
+        founderText: "\"I built this for my 7-year-old boy so he won’t get stuck in brain-rot content.\"",
+        // footer: "Privacy Policy | Terms of Service | Contact",
+        privacy: "Privacy Policy",
+        term: "Term of Service ",
+        contact: "Contact"
+      },
+      vi: {
+        subtitle: "Game luyện đọc vui vẻ",
+        subtitle_powered_by: "",
+        main: "Game này có thể giúp con bạn đọc tốt hơn và suy nghĩ thông minh hơn",
+        founderTitle: "Lời nhắn từ Founder:",
+        founderText: "\"Mình làm ra sản phẩm này cho cậu con trai 7 tuổi của mình, để bé không bị mắc kẹt trong những nội dung \"thối não\" trên mạng.\"",
+        // footer: "Chính sách bảo mật | Điều khoản dịch vụ | Liên hệ",
+        privacy: "Chính sách bảo mật",
+        term: " Điều khoản dịch vụ",
+        contact: "Liên hệ"
+      }
+    };
+
+    function setLang(lang) {
+      localStorage.setItem("lang", lang);
+      applyLang(lang);
+    }
+
+    function updateLangButtons(lang) {
+      document.getElementById("btn-en").classList.remove("active");
+      document.getElementById("btn-vi").classList.remove("active");
+
+      document.getElementById("btn-" + lang).classList.add("active");
+    }
+
+    function applyLang(lang) {
+      updateLangButtons(lang);
+
+      const t = translations[lang];
+
+      document.getElementById("subtitle").innerText = t.subtitle;
+      document.getElementById("subtitle_powered_by").innerText = t.subtitle_powered_by;
+      document.getElementById("mainText").innerText = t.main;
+      document.getElementById("founderTitle").innerText = t.founderTitle;
+      document.getElementById("founderText").innerText = t.founderText;
+      // document.getElementById("footerLinks").innerText = t.footer;
+      document.getElementById("privacy").innerText = t.privacy;
+      document.getElementById("term").innerText = t.term;
+      document.getElementById("contact").innerText = t.contact;
+
+    }
+
+    // AUTO DETECT LANGUAGE
+    (function () {
+      let lang = localStorage.getItem("lang");
+
+      if (!lang) {
+        const browserLang = navigator.language || navigator.userLanguage;
+        lang = browserLang.startsWith("vi") ? "vi" : "en";
+      }
+
+      applyLang(lang);
+    })();
+  </script>
+
+</body>
+<div class="scroll-hint-fixed" id="scrollHint">↓</div>
+
+</html>
